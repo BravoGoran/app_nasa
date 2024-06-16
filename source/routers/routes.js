@@ -21,11 +21,11 @@ export default Routes = () => {
           component={Home}
           options={Opciones}
         />
-        {/* <Stack.Screen
+        <Stack.Screen
           name="Detalles"
           component={Detalles}
           options={Opciones}
-        /> */}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

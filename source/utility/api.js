@@ -1,5 +1,4 @@
-import api from "../utility/api";
-
+const gateway = "https://api.nasa.gov/planetary/apod";
 const api_key = "SItCayg6sQTWzKjr3fUd8bkl1SUseajY6ts23h6c";
 
 export default api = async (parametros) => {

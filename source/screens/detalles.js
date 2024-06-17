@@ -1,11 +1,14 @@
 import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
 import Layout from "./layout";
 import { useRoute } from "@react-navigation/native";
+import { getYouTubeThumbnail } from "../utility/conversorURL"
 
 export default Detalle = ({ navigation }) => {
   const {
     params: { url, title, desc, date },
   } = useRoute();
+  
+  const imageUrl = getYouTubeThumbnail(url) || url;
 
   return (
     <Layout>
@@ -15,7 +18,7 @@ export default Detalle = ({ navigation }) => {
       <View style={styles.imagenConainer}>
         <Image
           source={{
-            uri: url,
+            uri: imageUrl,
           }}
           style={styles.img}
         />
@@ -50,7 +53,7 @@ const styles = StyleSheet.create({
     marginVertical: 5,
   },
   descripcionContainer: {
-    paddingTop: 15,
+    padding: 15,
     height: "100%",
   },
   imagenConainer: {

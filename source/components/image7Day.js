@@ -1,10 +1,12 @@
 import { Image, StyleSheet, View } from "react-native";
 import TextWhite from "./textWhite";
-import BotonDetalles from "./buttonDetalles"
+import BotonDetalles from "./buttonDetalles";
+import { getYouTubeThumbnail } from "../utility/conversorURL";
 
-export default Image7Day = (props) => {
-  const { title, date, url, onPres } = props;
-  console.log("desde image7Day", props);
+const Image7Day = ({ title, date, url, onPres }) => {
+  console.log("desde Image7Day", { title, date, url });
+
+  const imageUrl = getYouTubeThumbnail(url) || url;
 
   return (
     <View style={styles.container}>
@@ -16,7 +18,7 @@ export default Image7Day = (props) => {
       <View style={styles.rcontainer}>
         <Image
           source={{
-            uri: url,
+            uri: imageUrl,
           }}
           style={styles.img}
         />
@@ -45,6 +47,8 @@ const styles = StyleSheet.create({
   },
   rcontainer: {
     flex: 0.3,
-    alignContent: "flex-end",
+    alignItems: "flex-end",
   },
 });
+
+export default Image7Day;
